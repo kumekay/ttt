@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  resources :stuffs
+  resources :stuffs do
+    get 'my', on: :collection
+  end
+  get 'tags/:tag', to: 'stuffs#index', as: :tag
 
   root 'stuffs#index'
 
   get '/auth/:provider/callback', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'
-  get 'tags/:tag', to: 'stuffs#index', as: :tag
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

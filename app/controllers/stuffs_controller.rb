@@ -1,16 +1,21 @@
 class StuffsController < ApplicationController
-  before_action :set_stuff, only: %i[show edit update]
+  before_action :set_stuff, only: %i[edit update]
   skip_before_filter :authorize, only: %i[show index]
 
   def index
     if params[:tag]
-      @stuffs = Stuff.tagged_with(params[:tag])
+      @stuffs = index_stuff.tagged_with(params[:tag])
     else
-      @stuffs = Stuff.all
+      @stuffs = index_stuff
     end
   end
 
+  def my
+    @stuffs = current_user.stuffs
+  end
+
   def show
+    index_stuff.find(params[:id])
   end
 
   def new
@@ -49,5 +54,9 @@ class StuffsController < ApplicationController
 
   def set_stuff
     @stuff = current_user.stuffs.find(params[:id])
+  end
+
+  def index_stuff
+    current_user ? Stuff.not_own(current_user) : Stuff.all
   end
 end
