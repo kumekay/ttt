@@ -10,6 +10,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/db/*.sqlite3
 
 # Ignore compiled assets
 /public/assets
@@ -20,6 +21,7 @@
 
 # Ignore db config
 /config/database.yml
+/config/secrets.yml
 
 # Ignore idea files
 /.idea
