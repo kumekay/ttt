@@ -1,8 +1,8 @@
 class Stuff < ActiveRecord::Base
   belongs_to :user
-  has_many :wishers_wishes, class_name: 'Wish', foreign_key: 'wisher_stuff_id'
-  has_many :owners_wishes, class_name: 'Wish', foreign_key: 'owner_stuff_id'
+  has_many :buckets
   has_many :likes
+  has_many :change_buckets, class_name: 'Bucket', foreign_key: 'change_stuff_id'
 
   acts_as_taggable
 

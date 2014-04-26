@@ -10,6 +10,10 @@ class StuffsController < ApplicationController
     end
   end
 
+  def change
+    @stuff = current_user.stuffs.find(params[:id])
+  end
+
   def my
     @stuffs = current_user.stuffs
   end
