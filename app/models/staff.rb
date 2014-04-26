@@ -1,6 +1,8 @@
 class Staff < ActiveRecord::Base
-  has_and_belongs_to_many :users
+  belongs_to :user
   acts_as_taggable
 
-  validates :name, presence: true
+  validates :name, :description, :image, presence: true
+
+  mount_uploader :image, ImageUploader
 end

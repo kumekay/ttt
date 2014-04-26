@@ -14,6 +14,7 @@
 
 # Ignore compiled assets
 /public/assets
+/public/uploads/*
 
 # Ignore state_machine and rails-erd output
 /Media_state.png

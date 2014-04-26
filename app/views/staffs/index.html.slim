@@ -5,7 +5,7 @@
         - @staffs.each do |staff|
           .item
             .image
-              = placeholdit_image_tag "300"
+              = image_tag(staff.image_url(:thumb).to_s) if staff.image?
                 a.like.ui.corner.label
                   i.like.icon
             .content

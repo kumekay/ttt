@@ -1,5 +1,7 @@
 = @staff.name
 
+p = image_tag(@staff.image_url) if @staff.image?
+
 p Тэги:
 p = raw @staff.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
 

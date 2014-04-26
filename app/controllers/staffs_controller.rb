@@ -1,6 +1,6 @@
 class StaffsController < ApplicationController
   before_action :set_staff, only: %i[show edit update]
-
+  skip_before_filter :authorize, only: %i[show index]
 
   def index
     if params[:tag]
@@ -8,7 +8,6 @@ class StaffsController < ApplicationController
     else
       @staffs = Staff.all
     end
-
   end
 
   def show
@@ -45,7 +44,7 @@ class StaffsController < ApplicationController
   private
 
   def staff_params
-    params[:staff].permit(:name, :tag_list)
+    params[:staff].permit(:name, :description, :tag_list, :image)
   end
 
   def set_staff

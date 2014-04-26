@@ -58,3 +58,7 @@ gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 gem 'font-awesome-rails'
 gem 'placeholdit'
 gem 'acts-as-taggable-on'
+
+gem 'carrierwave'
+gem 'rmagick', require: 'RMagick'
+gem 'fog'

@@ -5,6 +5,3 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-%w[Компьютеры Спорт Одежда Продукты Электроника Техника].each do |cat|
-  Tag.find_or_create_by(name: cat)
-end
