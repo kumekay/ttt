@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_filter :authorize, only: :create
+
   def create
     user = User.find_or_create_with_omniauth(auth_hash)
     session[:user_id] = user.id
