@@ -6,6 +6,6 @@ class ChangeStaffsUsers < ActiveRecord::Migration
 
   def down
     remove_column :staffs, :user_id
-    create_join_table :staffs, :users
+    create_join_table :stuffs, :users
   end
 end

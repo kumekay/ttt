@@ -1,0 +1,8 @@
+= @stuff.name
+
+p = image_tag(@stuff.image_url) if @stuff.image?
+
+p Тэги:
+p = raw @stuff.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+
+= link_to 'Редактировать', edit_stuff_path(@stuff)

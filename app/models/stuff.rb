@@ -1,4 +1,4 @@
-class Staff < ActiveRecord::Base
+class Stuff < ActiveRecord::Base
   belongs_to :user
   acts_as_taggable
 
