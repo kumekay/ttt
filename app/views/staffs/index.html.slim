@@ -1,2 +1,15 @@
-h1 Staffs#index
-p Find me in app/views/staffs/index.html.slim
+.ui.grid
+  .row
+    .column
+      .ui.four.items
+        - 10.times do
+          .item
+            .image
+              = placeholdit_image_tag "300"
+                a.like.ui.corner.label
+                  i.like.icon
+            .content
+              .name Cute Dog
+              p.description This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.
+              .extra
+                | 199 votes

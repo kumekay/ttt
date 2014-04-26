@@ -47,4 +47,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'jazz_hands'
 end
+
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+gem "font-awesome-rails"
+gem 'placeholdit'
