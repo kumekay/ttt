@@ -2,6 +2,20 @@
   .row
     .column
       .ui.four.items
+        - @staffs.each do |staff|
+          .item
+            .image
+              = placeholdit_image_tag "300"
+                a.like.ui.corner.label
+                  i.like.icon
+            .content
+              .name = staff.name
+              .tags = raw staff.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+              p.description = staff.description
+              .extra
+                | 199 votes
+
+
         - 10.times do
           .item
             .image

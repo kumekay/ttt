@@ -34,6 +34,10 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.1.1)
+      actionpack (>= 3, < 5)
+      activerecord (>= 3, < 5)
+      activesupport (>= 3, < 5)
     arel (5.0.1.20140414130214)
     awesome_print (1.2.0)
     better_errors (1.1.0)
@@ -236,6 +240,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   better_errors
   coffee-rails (~> 4.0.0)
   figaro
