@@ -3,7 +3,6 @@ ruby '2.1.0'
 source 'https://rubygems.org'
 
 gem 'rails', '4.1.0'
-gem 'sqlite3'
 
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -43,9 +42,16 @@ gem 'state_machine' #https://github.com/pluginaweek/state_machine
 gem 'paperclip', '~> 3.5' #Attachment management (for userpic)
 
 gem 'figaro'
+
 group :development, :test do
   gem 'better_errors'
   gem 'jazz_hands'
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor', '0.0.2'
 end
 
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
