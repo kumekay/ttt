@@ -1,13 +1,22 @@
 = form_for @stuff do |f|
-  = f.label :name
-  = f.text_field :name
+  .ui.form.segment
+    .field
+      .ui.left.labeled.icon.input
+        = f.text_field :name, placeholder: "Name"
+        i.user.icon
 
-  = f.label :description
-  = f.text_area :description
+    .field
+      .ui.left.labeled.icon.input
+        = f.text_area :description, placeholder: "Description"
 
-  = f.file_field :image
+    .field
+      .ui.left.labeled.icon.input
+        = f.file_field :image
+        i.photo.icon
 
-  = f.label :tag_list
-  = f.text_field :tag_list
+    .field
+      .ui.left.labeled.icon.input
+        = f.text_field :tag_list, placeholder: "Tags"
+        i.tags.icon
 
-  = f.submit
+    input.ui.orange.submit.button type="submit"

@@ -2,7 +2,7 @@
   .row
     .column
       .ui.stackable.items
-        - @staffs.each do |stuff|
+        - @stuffs.each do |stuff|
           .item
             .image
               = image_tag(stuff.image_url(:thumb).to_s) if stuff.image?
@@ -13,14 +13,4 @@
               .tags = raw stuff.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
               p.description = stuff.description
               .extra
-                | 199 votes
-
-
-        - 10.times do
-          .item
-            .image
-              = placeholdit_image_tag "300"
-                a.like.ui.corner.label
-                  i.like.icon
-            .content
-              .name Cute Dog
+                i.edit.icon
