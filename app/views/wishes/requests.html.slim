@@ -1,0 +1,3 @@
+- @wishes.each do |wish|
+  = render partial: 'stuffs/stuff', object: wish.owner_stuff, as: :stuff
+  = link_to 'Подробнее', wish_request_path(wish)
