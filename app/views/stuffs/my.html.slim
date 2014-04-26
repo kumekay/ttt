@@ -1,8 +1,8 @@
 .ui.grid
   .row
     .column
-      .ui.four.items
+      .ui.stackable.items
         - @stuffs.each do |stuff|
-          = render partial: 'stuffs/stuff_full', locals: { stuff: stuff }
+          = render partial: 'stuffs/stuff_light', locals: { stuff: stuff }
 
         = link_to 'Добавить вещь', new_stuff_path
