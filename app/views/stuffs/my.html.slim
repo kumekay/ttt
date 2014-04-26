@@ -3,17 +3,6 @@
     .column
       .ui.four.items
         - @stuffs.each do |stuff|
-          .item
-            .image
-              = image_tag(stuff.image_url(:thumb).to_s) if stuff.image?
-                a.like.ui.corner.label
-                  i.like.icon
-            .content
-              .name = stuff.name
-              .tags = raw stuff.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
-              p.description = stuff.description
-              = link_to 'Редактировать', edit_stuff_path(stuff)
-              .extra
-                | 199 votes
+          = render partial: 'stuffs/stuff_full', locals: { stuff: stuff }
 
         = link_to 'Добавить вещь', new_stuff_path

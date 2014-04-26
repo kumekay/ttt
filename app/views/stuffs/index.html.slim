@@ -1,7 +1,7 @@
 .ui.grid
   .row
     .column
-      .ui.four.items
+      .ui.stackable.items
         - @stuffs.each do |stuff|
           .item
             .image
@@ -16,3 +16,4 @@
                 = link_to 'Хочу', add_wish_path(wisher_id: current_user.id, owner_id: stuff.user, owner_stuff_id: stuff.id), remote: true
               .extra
                 | 199 votes
+          = render partial: 'stuffs/stuff_light', locals: { stuff: stuff }
