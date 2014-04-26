@@ -6,4 +6,11 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
+    #user_nav
+      - if current_user
+        = "Welcome, #{current_user.name}!"
+        = image_tag(current_user.image)
+        = link_to "Sign Out", signout_path, method: :delete, data: { confirm: 'Are you sure?' }
+      - else
+        = link_to "Sign in with FB", "/auth/facebook"
     = yield

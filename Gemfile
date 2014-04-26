@@ -41,3 +41,9 @@ gem 'state_machine' #https://github.com/pluginaweek/state_machine
 
 # TODO: update when they fix issue https://github.com/thoughtbot/paperclip/issues/1470
 gem 'paperclip', '~> 3.5' #Attachment management (for userpic)
+
+gem 'figaro'
+group :development, :test do
+  gem 'better_errors'
+  gem 'jazz_hands'
+end
