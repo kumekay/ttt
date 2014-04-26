@@ -15,7 +15,7 @@ class StuffsController < ApplicationController
   end
 
   def show
-    index_stuff.find(params[:id])
+    @stuff = Stuff.find(params[:id])
   end
 
   def new
