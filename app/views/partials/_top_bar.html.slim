@@ -21,9 +21,9 @@
           = semantic_icon('sign', 'in')
           .icon_text Sign in
           .menu
-            a.item
+            a.item href="#{url_for('/auth/odnoklassniki')}"
               i.icon.circle
               | Odnoklassniki
-            a.item
+            a.item href="#{url_for('/auth/facebook')}"
               = semantic_icon('facebook', 'sign')
               | Facebook
