@@ -1,8 +1,8 @@
 .ui.grid
   .row
     .column
-      .ui.four.items
-        - @stuffs.each do |stuff|
+      .ui.stackable.items
+        - @staffs.each do |stuff|
           .item
             .image
               = image_tag(stuff.image_url(:thumb).to_s) if stuff.image?
@@ -14,3 +14,13 @@
               p.description = stuff.description
               .extra
                 | 199 votes
+
+
+        - 10.times do
+          .item
+            .image
+              = placeholdit_image_tag "300"
+                a.like.ui.corner.label
+                  i.like.icon
+            .content
+              .name Cute Dog
