@@ -2,6 +2,7 @@ class Stuff < ActiveRecord::Base
   belongs_to :user
   has_many :wishers_wishes, class_name: 'Wish', foreign_key: 'wisher_stuff_id'
   has_many :owners_wishes, class_name: 'Wish', foreign_key: 'owner_stuff_id'
+  has_many :likes
 
   acts_as_taggable
 
@@ -10,4 +11,28 @@ class Stuff < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   scope :not_own, ->(user) { where.not(user: user) }
+
+  def liked_by?(user)
+    if self.likes.where(user_id: user.id).any?
+      true
+    else
+      false
+    end
+  end
+
+  def like_matches
+    matches = []
+
+    self.user.liked_stuff.each do |my_liked_stuff|
+      my_liked_stuff.user.liked_stuff.each do |his_liked_stuff|
+        if his_liked_stuff.user.id == self.user.id
+          if not matches.include?(my_liked_stuff)
+            matches.push(my_liked_stuff)
+          end
+        end
+      end
+    end
+
+    matches
+  end
 end

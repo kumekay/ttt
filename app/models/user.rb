@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :wishes, class_name: 'Wish', foreign_key: 'wisher_id'
   has_many :wish_requests, class_name: 'Wish', foreign_key: 'owner_id'
+  has_many :likes
 
   def self.create_with_omniauth(auth)
     create! do |user|
@@ -15,5 +16,9 @@ class User < ActiveRecord::Base
 
   def self.find_or_create_with_omniauth(auth)
     find_by(provider: auth['provider'], uid: auth['uid']) || create_with_omniauth(auth)
+  end
+
+  def liked_stuff
+    self.likes.map {|x| x.stuff }
   end
 end

@@ -1,0 +1,25 @@
+.ui.center.aligned.grid
+  .row
+    .ten.wide.column
+      .ui.grid
+        .three.column.row
+          .column
+            .ui.header My stuff
+          .column
+          .column
+            .ui.header Someone's stuff
+  - @stuffs.each do |stuff|
+    - stuff.like_matches.each do |match_stuff|
+      .row
+        .ten.wide.column
+          .ui.segment
+            .ui.grid
+              .three.column.row
+                .column
+                  .ui.items
+                    = render partial: 'stuffs/stuff_light', locals: { stuff: stuff }
+                .column
+                  i.massive.exchange.icon
+                .column
+                  .ui.items
+                    = render partial: 'stuffs/stuff_light', locals: { stuff: match_stuff }

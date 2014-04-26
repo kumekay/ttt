@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   get '/requests/:id', to: 'wishes#wish_request', as: :wish_request
   get '/add_wish', to: 'wishes#add_wish'
 
+  get 'stuffs/:stuff_id/like_toggle', to: 'likes#like_toggle', as: 'stuff_like_toggle'
+
+  get 'matches', to: 'matches#index'
+
   resources :stuffs do
     get 'my', on: :collection
   end
