@@ -7,7 +7,3 @@
     .name = stuff.name
     .tags = raw stuff.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
     p.description = stuff.description
-    .extra
-      a href="#{edit_stuff_path(stuff)}"
-        i.edit.icon
-        | Edit
