@@ -1,29 +1,35 @@
 #top_bar
   .ui.fixed.orange.inverted.menu
     a.item#logo
-      = semantic_icon('exchange')
+      i.icon.exchange
       .ui.huge.header
         | Stuff Bucket
 
     .right.menu
       a.item
-        i.icon
+        i.icon.medium
           | #
         .icon_text Tags
       - if current_user
-        = "Welcome, #{current_user.name}!"
-        = image_tag(current_user.image)
-        = link_to "Sign Out", signout_path, method: :delete, data: { confirm: 'Are you sure?' }
+        .ui.dropdown.item.sign_out
+          = current_user.name
+          i.icon.triangle.down
+
+          .menu
+            a.item href="#{signout_path}" data-method="delete"
+              i.icon.sign.out
+              | Sign out
+
+        .item
+          img.ui.image.circular src="#{current_user.image}"
       - else
-        = link_to "Sign in with OK", "/auth/odnoklassniki"
-        = link_to "Sign in with FB", "/auth/facebook"
         .ui.dropdown.item.sign_in
-          = semantic_icon('sign', 'in')
+          i.icon.sign.in
           .icon_text Sign in
           .menu
             a.item href="#{url_for('/auth/odnoklassniki')}"
               i.icon.circle
               | Odnoklassniki
             a.item href="#{url_for('/auth/facebook')}"
-              = semantic_icon('facebook', 'sign')
+              i.icon.facebook.sign
               | Facebook
