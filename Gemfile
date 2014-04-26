@@ -32,7 +32,7 @@ gem 'spring', group: :development
 # Auth
 #  https://github.com/intridea/omniauth/wiki
 gem 'omniauth-facebook'  # https://github.com/mkdynamic/omniauth-facebook
-gem 'omniauth-vkontakte' # https://github.com/mamantoha/omniauth-vkontakte 
+gem 'omniauth-vkontakte' # https://github.com/mamantoha/omniauth-vkontakte
 gem 'omniauth-odnoklassniki' # https://github.com/incubus/omniauth-odnoklassniki
 
 # State of reservation
@@ -47,3 +47,4 @@ group :development, :test do
   gem 'better_errors'
   gem 'jazz_hands'
 end
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
