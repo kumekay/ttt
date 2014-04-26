@@ -1,8 +1,6 @@
 class User < ActiveRecord::Base
   has_many :stuffs
-
-  has_many :wishes, class_name: 'Wish', foreign_key: 'wisher_id'
-  has_many :wish_requests, class_name: 'Wish', foreign_key: 'owner_id'
+  has_many :buckets
 
   def self.create_with_omniauth(auth)
     create! do |user|

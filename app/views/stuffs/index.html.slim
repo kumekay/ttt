@@ -12,8 +12,11 @@
               .name = stuff.name
               .tags = raw stuff.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
               p.description = stuff.description
-              - if current_user
+              /- if current_user
                 = link_to 'Хочу', add_wish_path(wisher_id: current_user.id, owner_id: stuff.user, owner_stuff_id: stuff.id), remote: true
               .extra
                 | 199 votes
           = render partial: 'stuffs/stuff_light', locals: { stuff: stuff }
+          - if current_user
+            - label = current_user.buckets.find_by(stuff: stuff) ? 'Dislike' : 'Like'
+            = link_to label, liking_path(stuff.id), remote: true

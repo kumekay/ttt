@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140426175419) do
+ActiveRecord::Schema.define(version: 20140426214558) do
+
+  create_table "buckets", force: true do |t|
+    t.integer "user_id"
+    t.integer "stuff_id"
+    t.integer "change_stuff_id"
+    t.boolean "approve"
+  end
+
+  add_index "buckets", ["change_stuff_id"], name: "index_buckets_on_change_stuff_id"
+  add_index "buckets", ["stuff_id"], name: "index_buckets_on_stuff_id"
+  add_index "buckets", ["user_id"], name: "index_buckets_on_user_id"
 
   create_table "stuffs", force: true do |t|
     t.string   "name"
@@ -49,21 +60,5 @@ ActiveRecord::Schema.define(version: 20140426175419) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "wishes", force: true do |t|
-    t.integer  "wisher_id"
-    t.integer  "owner_id"
-    t.integer  "wisher_stuff_id"
-    t.integer  "owner_stuff_id"
-    t.integer  "wisher_approve"
-    t.integer  "owner_approve"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "wishes", ["owner_id"], name: "index_wishes_on_owner_id"
-  add_index "wishes", ["owner_stuff_id"], name: "index_wishes_on_owner_stuff_id"
-  add_index "wishes", ["wisher_id"], name: "index_wishes_on_wisher_id"
-  add_index "wishes", ["wisher_stuff_id"], name: "index_wishes_on_wisher_stuff_id"
 
 end

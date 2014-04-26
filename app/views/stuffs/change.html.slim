@@ -1,0 +1,4 @@
+- @stuff.buckets.each do |bucket|
+  - bucket.user.stuffs.each do |stuff|
+    = image_tag(stuff.image_url(:thumb)) if stuff.image?
+    = link_to 'Согласен', approve_path(bucket, change_stuff_id: stuff.id)
