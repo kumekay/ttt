@@ -32,7 +32,7 @@ gem 'spring', group: :development
 # Auth
 #  https://github.com/intridea/omniauth/wiki
 gem 'omniauth-facebook'  # https://github.com/mkdynamic/omniauth-facebook
-gem 'omniauth-vkontakte' # https://github.com/mamantoha/omniauth-vkontakte 
+gem 'omniauth-vkontakte' # https://github.com/mamantoha/omniauth-vkontakte
 gem 'omniauth-odnoklassniki' # https://github.com/incubus/omniauth-odnoklassniki
 
 # State of reservation
@@ -41,3 +41,4 @@ gem 'state_machine' #https://github.com/pluginaweek/state_machine
 
 # TODO: update when they fix issue https://github.com/thoughtbot/paperclip/issues/1470
 gem 'paperclip', '~> 3.5' #Attachment management (for userpic)
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
