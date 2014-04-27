@@ -13,6 +13,7 @@ class Stuff < ActiveRecord::Base
   scope :not_own, ->(user) { where.not(user: user) }
 
   def liked_by?(user)
+    return false unless user
     if self.likes.where(user_id: user.id).any?
       true
     else

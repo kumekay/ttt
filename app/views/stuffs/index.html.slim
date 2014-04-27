@@ -4,6 +4,3 @@
       .ui.stackable.items
         - @stuffs.each do |stuff|
           = render partial: 'stuffs/stuff_light', locals: { stuff: stuff }
-          - if current_user
-            - label = current_user.buckets.find_by(stuff: stuff) ? 'Dislike' : 'Like'
-            = link_to label, liking_path(stuff.id), remote: true
