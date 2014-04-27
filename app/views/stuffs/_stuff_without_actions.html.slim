@@ -1,0 +1,8 @@
+.item.stuff_item
+  .image
+    = image_tag(stuff.image_url(:thumb).to_s) if stuff.image?
+  .content
+    .name = stuff.name
+  .extra
+    i.heart.icon
+    = stuff.likes.count

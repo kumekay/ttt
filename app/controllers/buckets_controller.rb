@@ -9,16 +9,22 @@ class BucketsController < ApplicationController
     end
   end
 
-  # def my
-  #   @stuffs = current_user.stuffs.joins(:buckets).where(change_stuff_id: nil)
-  # end
-
   def approve
     @bucket = Bucket.find(params[:id]).update_attributes(change_stuff_id: params[:change_stuff_id], approve: true)
     redirect_to buckets_approved_path
   end
 
   def approved
-    @buckets = Bucket.where(approve: true).all
+    @buckets = Bucket.approved
+  end
+
+  def match_approve
+    @bucket = Bucket.create(
+      user: current_user,
+      stuff_id: params[:stuff_id],
+      change_stuff_id: params[:change_stuff_id],
+      approve: true
+    )
+    redirect_to buckets_approved_path
   end
 end

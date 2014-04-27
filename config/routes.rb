@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   get 'buckets/liking/:id', to: 'buckets#liking', as: :liking
   get 'buckets/:id/approve', to: 'buckets#approve', as: :approve
-  get 'buckets/approved', to: 'buckets#approved'
-  # get 'buckets/my', to: 'buckets#my'
+  get '/approved', to: 'buckets#approved', as: :approved
+  get 'buckets/match_approve', to: 'buckets#match_approve'
 
   get 'stuffs/:stuff_id/like_toggle', to: 'likes#like_toggle', as: 'stuff_like_toggle'
 
