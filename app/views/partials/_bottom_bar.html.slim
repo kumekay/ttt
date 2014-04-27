@@ -4,18 +4,29 @@
       .center.aligned.row
         .column
           a.item href="#{wishlist_path}" class="#{'active_own_color' if controller?("stuffs") && action?("liked")}"
-            img src="#{image_url('icons/likes.png')}"
+            img src="#{image_url('icons/likes.png')}" height="48px" width="57px"
             / i.medium.icon.heart.empty
-            / .icon_text 4
+            span.count= Stuff.not_own(current_user).liked.count
+            .icon_text Likes
           a.item href="#{my_stuffs_path}" class="#{'active_own_color' if controller?("stuffs") && action?("my")}"
-            img src="#{image_url('icons/myBucket.png')}"
+            img src="#{image_url('icons/myBucket.png')}" height="48px" width="57px"
             / i.medium.icon.bitbucket
-            / .icon_text My bucket
+            span.count= current_user.stuffs.count
+            .icon_text My bucket
           a.item href="#{matches_path}" class="#{'active_own_color' if controller?("matches") && action?("index")}"
-            img src="#{image_url('icons/likesInMyBucket.png')}"
+            img src="#{image_url('icons/likesInMyBucket.png')}" height="48px" width="57px"
             / i.medium.icon.exchange
-            / .icon_text Pairs
+            - pairs_count = 0
+            - if current_user.stuffs
+              - current_user.stuffs.each do |stuff|
+                - stuff.like_matches.each do |match_stuff|
+                  - unless Bucket.find_by(stuff: stuff, change_stuff: match_stuff) && Bucket.find_by(stuff: match_stuff, change_stuff: stuff)
+                    - pairs_count += 1
+
+            span.count= pairs_count
+            .icon_text Pairs
           a.item href="#{approved_path}" class="#{'active_own_color' if controller?("buckets") && action?("approved")}"
-            img src="#{image_url('icons/swap.png')}"
+            img src="#{image_url('icons/swap.png')}" height="48px" width="57px"
             / i.medium.icon class="ok circle"
-            / .icon_text Approved
+            span.count= current_user.buckets.approved.order('updated_at DESC').count
+            .icon_text Approved
