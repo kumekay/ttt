@@ -4,8 +4,8 @@
       a.item#logo href="#{root_url}"
         img src="#{image_url('icons/newlogo.png')}"
       .right.menu
-        /a.icon.item
-        /  img src="#{image_url('icons/search.png')}"
+        / a.icon.item
+        /   img src="#{image_url('icons/search.png')}"
           / i.search.icon.medium
           / .icon_text Search
         a.item href="#{tag_cloud_url}" class="#{'active_own_color' if controller?("stuffs") && action?("tag_cloud")}"
