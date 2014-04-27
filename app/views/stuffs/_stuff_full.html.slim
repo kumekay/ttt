@@ -1,4 +1,4 @@
-.item.stuff_item href="#{stuff_path(stuff)}"
+.item.stuff_item href="#{stuff_path(stuff)}" data-stuff-id="#{stuff.id}"
   .image
     = image_tag(stuff.image_url(:thumb).to_s) if stuff.image?
     - if stuff.user != current_user
