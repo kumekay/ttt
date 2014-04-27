@@ -50,6 +50,10 @@ class StuffsController < ApplicationController
     #todo:
   end
 
+  def liked
+    @stuffs = Stuff.not_own(current_user).liked
+  end
+
   private
 
   def stuff_params

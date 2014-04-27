@@ -7,10 +7,12 @@ Rails.application.routes.draw do
 
   get 'stuffs/:stuff_id/like_toggle', to: 'likes#like_toggle', as: 'stuff_like_toggle'
 
+  get 'wishlist', to: 'stuffs#liked', as: 'wishlist'
+  get 'my_bucket', to: 'stuffs#my', as: 'my_stuffs'
+
   get 'matches', to: 'matches#index'
 
   resources :stuffs do
-    get 'my', on: :collection
     get 'change', on: :member
   end
   get 'tags/:tag', to: 'stuffs#index', as: :tag

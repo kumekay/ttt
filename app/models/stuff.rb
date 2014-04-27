@@ -11,6 +11,7 @@ class Stuff < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   scope :not_own, ->(user) { where.not(user: user) }
+  scope :liked, -> { joins(:likes) }
 
   def liked_by?(user)
     return false unless user

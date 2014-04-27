@@ -1,0 +1,9 @@
+.ui.grid
+  .row
+    .column
+      .ui.stackable.items
+        - @stuffs.each do |stuff|
+          = render partial: 'stuffs/stuff_full', locals: { stuff: stuff }
+          - unless stuff.buckets.where(change_stuff_id: nil).empty?
+            = link_to 'Обменять', change_stuff_path(stuff)
+        = link_to 'Добавить вещь', new_stuff_path
