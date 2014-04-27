@@ -22,7 +22,7 @@
               - pairs_count = 0
               - current_user.stuffs.each do |stuff|
                 - stuff.like_matches.each do |match_stuff|
-                  - unless Bucket.find_by(stuff: stuff, change_stuff: match_stuff) && Bucket.find_by(stuff: match_stuff, change_stuff: stuff)
+                  - unless current_user.buckets.find_by(stuff: stuff, change_stuff: match_stuff) && Bucket.find_by(stuff: match_stuff, change_stuff: stuff)
                     - pairs_count += 1
 
               span.count= pairs_count
