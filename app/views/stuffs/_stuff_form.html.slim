@@ -2,17 +2,17 @@
   .ui.form.segment
     .field
       .ui.left.labeled.icon.input
+        = f.file_field :image
+        i.photo.icon
+
+    .field
+      .ui.left.labeled.icon.input
         = f.text_field :name, placeholder: "Name"
         i.user.icon
 
     .field
       .ui.left.labeled.icon.input
         = f.text_area :description, placeholder: "Description"
-
-    .field
-      .ui.left.labeled.icon.input
-        = f.file_field :image
-        i.photo.icon
 
     .field
       .ui.left.labeled.icon.input
