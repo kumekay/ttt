@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-
+    
+  get 'messages/:id', to: 'messages#show', as: :messages
+  post 'messages/:id', to: 'messages#create'
+  
+  
   get 'buckets/liking/:id', to: 'buckets#liking', as: :liking
   get 'buckets/:id/approve', to: 'buckets#approve', as: :approve
   get '/approved', to: 'buckets#approved', as: :approved

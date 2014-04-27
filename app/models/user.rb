@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :stuffs
   has_many :buckets
   has_many :likes
+  has_many :messages
   
   def self.create_with_omniauth(auth)
     create! do |user|

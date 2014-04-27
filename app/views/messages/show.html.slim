@@ -1,0 +1,14 @@
+h1 Переписка
+ul
+  - @messages.each do |message|
+    li
+      p= message.body
+      small= message.user.name
+      small= message.receiver.name
+= form_for :message do |f|
+  .ui.form.segment    
+    .field
+      .ui.left.labeled.icon.input
+        = f.text_area :body, placeholder: "Ваше сообщение"
+
+    input.ui.yellow.submit.button type="submit" 
