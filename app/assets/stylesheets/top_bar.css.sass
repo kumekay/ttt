@@ -1,4 +1,5 @@
 #top_bar
+  @media only screen and (max-width : 600px)
   padding: 0px
 
   .menu
@@ -9,6 +10,8 @@
       font-size: 3em
     .ui.huge.header
       display: inline
+      @media screen and (max-width: 600px)
+        display: none
 
   .item
     text-align: center
@@ -25,6 +28,9 @@
   .sign_out
     i
       font-size: 1em
+    .name
+      @media screen and (max-width: 600px)
+        display: none
     img.circular
       display: inline
     .menu

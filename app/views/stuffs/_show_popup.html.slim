@@ -1,6 +1,6 @@
-.ui.basic.modal
-  .ui.grid.stuff_popup
+.ui.basic.modal.stuff_popup
+  .ui.grid
     .row
       .column
         .ui.stackable.items
-          = render partial: 'stuffs/stuff_full', locals: { stuff: @stuff }
+          = render partial: 'stuffs/stuff_popup', locals: { stuff: @stuff }

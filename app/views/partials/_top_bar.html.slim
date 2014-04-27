@@ -1,38 +1,39 @@
 #top_bar
-  .ui.fixed.orange.inverted.menu
-    a.item#logo href="#{root_url}"
-      i.icon.exchange
-      .ui.huge.header
-        | Stuff Bucket
+  .ui.transparent.fixed.orange.inverted.menu
+    .container
+      a.item#logo href="#{root_url}"
+        i.icon.exchange
+        .ui.huge.header.full
+          | Stuff Bucket
 
-    .right.menu
-      a.item
-        i.search.icon.medium
-        .icon_text Search
-      a.item
-        i.icon.medium
-          | #
-        .icon_text Tags
-      - if current_user
-        .ui.dropdown.item.sign_out
-          = current_user.name
-          i.icon.triangle.down
+      .right.menu
+        .icon.item
+          i.search.icon.medium
+          .icon_text Search
+        a.item
+          i.icon.medium
+            | #
+          .icon_text Tags
+        - if current_user
+          .ui.dropdown.item.sign_out
+            span.name= current_user.name
+            i.icon.triangle.down
 
-          .menu
-            a.item href="#{signout_path}" data-method="delete"
-              i.icon.sign.out
-              | Sign out
+            .menu
+              a.item href="#{signout_path}" data-method="delete"
+                i.icon.sign.out
+                | Sign out
 
-        .item
-          img.ui.image.circular src="#{current_user.image}"
-      - else
-        .ui.dropdown.item.sign_in
-          i.medium.icon.sign.in
-          .icon_text Sign in
-          .menu
-            a.item href="#{url_for('/auth/odnoklassniki')}"
-              i.icon.circle
-              | Odnoklassniki
-            a.item href="#{url_for('/auth/facebook')}"
-              i.icon.facebook.sign
-              | Facebook
+          .item
+            img.ui.image.circular src="#{current_user.image}"
+        - else
+          .ui.dropdown.item.sign_in
+            i.medium.icon.sign.in
+            .icon_text Sign in
+            .menu
+              a.item href="#{url_for('/auth/odnoklassniki')}"
+                i.icon.circle
+                | Odnoklassniki
+              a.item href="#{url_for('/auth/facebook')}"
+                i.icon.facebook.sign
+                | Facebook
