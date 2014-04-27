@@ -20,11 +20,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   process convert: :png
 
   # resize
-  process resize_to_limit: [800, 800]
+  process resize_to_fill: [800, 800]
   version :thumb do
-    process resize_to_limit: [200, 200]
+    process resize_to_fill: [200, 200]
   end
   version :mini, from_version: :thumb do
-    process resize_to_limit: [100, 100]
+    process resize_to_fill: [100, 100]
   end
 end
