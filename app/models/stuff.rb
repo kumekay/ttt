@@ -6,7 +6,7 @@ class Stuff < ActiveRecord::Base
 
   acts_as_taggable
 
-  validates :name, :description, :image, :user, presence: true
+  validates :name, :image, :user, presence: true
 
   mount_uploader :image, ImageUploader
 
