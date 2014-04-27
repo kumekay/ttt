@@ -1,7 +1,3 @@
-/ .ui.center.aligned.segment
-/   a href="#{new_stuff_path}"
-/     i.icon class="add sign box massive without_line"
-
 .ui.grid
   .row
     .column.one
@@ -19,5 +15,9 @@
               .column
                 img src="#{image_url('empty.png')}"
         - else
+          .ui.center.aligned.segment
+            a href="#{new_stuff_path}"
+              i.icon class="add sign box massive without_line"
+
           - @stuffs.each do |stuff|
             = render partial: 'stuffs/stuff_full', locals: { stuff: stuff }

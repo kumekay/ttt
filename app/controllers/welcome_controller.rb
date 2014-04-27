@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
+  skip_before_filter :authorize
+
   def index
-    @bucket = current_user.buckets.approved.order('updated_at DESC').last
+    @bucket = Bucket.approved.order('updated_at DESC').last
   end
 end
