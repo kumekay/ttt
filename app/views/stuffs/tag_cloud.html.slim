@@ -1,4 +1,6 @@
-#tag_cloud
-  - tag_cloud Stuff.tag_counts, %w{s m l} do |tag, css_class|
-    = link_to tag.name, tag_path(tag.name), class: css_class
-    | &nbsp;
+#tag_cloud.ui.grid
+  .row
+    .column
+      - tag_cloud Stuff.tag_counts, %w{s m l} do |tag, css_class|
+        a.ui.image.label href="#{tag_path(tag.name)}" class="#{css_class}"
+          = tag.name

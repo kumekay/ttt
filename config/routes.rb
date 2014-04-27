@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'matches', to: 'matches#index'
 
+  get 'welcome', to: 'welcome#index'
+
   resources :stuffs do
     get 'change', on: :member
     get 'popup', to: 'stuffs#show_popup'

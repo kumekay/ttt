@@ -2,12 +2,12 @@ html
   font-size: 15px
 
 body
+  color: #3d3437 !important
   font-size: 15px
   font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif
   background: #fcfcfc image-url("bg.jpg") repeat
   margin: 0px
   padding: 0px
-  color: #555555
   min-width: 320px
 
 h1, h2, h3, h4, h5
@@ -32,3 +32,12 @@ a
 
 .ui.yellow
   background-color: #FFB100 !important
+
+.item
+  color: #3d3437 !important
+
+  &.active_own_color
+    -webkit-box-shadow: none !important
+    box-shadow: none !important
+    background-color: rgba(255, 255, 255, 0.2)
+    color: #3d3437 !important
