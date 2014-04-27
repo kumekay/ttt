@@ -21,7 +21,7 @@ class StuffsController < ApplicationController
   end
 
   def my
-    @stuffs = current_user.stuffs
+    @stuffs = current_user.stuffs.order('created_at DESC')
   end
 
   def show

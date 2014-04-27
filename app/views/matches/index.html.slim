@@ -10,7 +10,7 @@
             .ui.header На что меняем?
   - @stuffs.each do |stuff|
     - stuff.like_matches.each do |match_stuff|
-      - unless Bucket.find_by(user: current_user, stuff: stuff, change_stuff: match_stuff)
+      - unless Bucket.find_by(stuff: stuff, change_stuff: match_stuff) && Bucket.find_by(stuff: match_stuff, change_stuff: stuff)
         .row
           .ten.wide.column
             .ui.segment

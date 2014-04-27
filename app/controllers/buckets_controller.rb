@@ -15,7 +15,7 @@ class BucketsController < ApplicationController
   end
 
   def approved
-    @buckets = Bucket.approved
+    @buckets = Bucket.approved.order('updated_at DESC')
   end
 
   def match_approve
