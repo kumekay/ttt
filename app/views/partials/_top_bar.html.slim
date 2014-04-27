@@ -1,5 +1,5 @@
 #top_bar
-  .ui.fixed.yellow.menu
+  .ui.transparent.fixed.yellow.inverted.menu
     .container
       a.item#logo href="#{root_url}"
         i.icon.exchange
@@ -9,7 +9,7 @@
         .icon.item
           i.search.icon.medium
           .icon_text Search
-        a.item href="#{tag_cloud_url}" class="#{'active' if controller?("stuffs") && action?("tag_cloud")}"
+        a.item href="#{tag_cloud_url}" class="#{'active_own_color' if controller?("stuffs") && action?("tag_cloud")}"
           i.icon.medium
             | #
           .icon_text Tags
