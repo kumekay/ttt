@@ -8,14 +8,22 @@
       webkit-box-shadow: 0px 0px 10px #888888 !important
 
   a.item
+    &::before
+      content: none !important
+
+    .count
+      font-size: 28px
+      position: absolute
+      top: 10px
+
     text-align: center
     padding: 0px
     padding-bottom: 2px
 
     @media screen and (min-width: 800px)
-      margin-left: 50px
-      margin-right: 50px
+      width: 200px
 
     i.icon
     .icon_text
       font-size: 1em
+      padding-bottom: 2px

@@ -1,10 +1,23 @@
-.ui.center.aligned.segment
-  a href="#{new_stuff_path}"
-    i.icon class="add sign box massive without_line"
+/ .ui.center.aligned.segment
+/   a href="#{new_stuff_path}"
+/     i.icon class="add sign box massive without_line"
 
 .ui.grid
   .row
     .column.one
       .ui.stackable.items
-        - @stuffs.each do |stuff|
-          = render partial: 'stuffs/stuff_full', locals: { stuff: stuff }
+        - if @stuffs.empty?
+          .center.aligned.ui.grid
+            .row
+              .column
+                h2 Вы пока не добавили ни одной вещи
+            .row
+              .column
+                a.ui.button href="#{new_stuff_path}"
+                  | Добавить вещь, чтобы получить возможность обмениваться вещами
+            .row
+              .column
+                img src="#{image_url('empty.png')}"
+        - else
+          - @stuffs.each do |stuff|
+            = render partial: 'stuffs/stuff_full', locals: { stuff: stuff }

@@ -1,6 +1,6 @@
 class StuffsController < ApplicationController
   before_action :set_stuff, only: %i[edit update]
-  skip_before_filter :authorize, only: %i[show index]
+  skip_before_filter :authorize, only: %i[show index tag_cloud]
 
   def index
     if params[:tag]
@@ -63,7 +63,7 @@ class StuffsController < ApplicationController
       if stuff = current_user.stuffs.find(params[:id])
         stuff.destroy
         stuff.buckets.destroy_all
-        stuff.change_buckets.destroy_all  
+        stuff.change_buckets.destroy_all
       end
     end
     redirect_to my_stuffs_path

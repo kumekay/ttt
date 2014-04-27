@@ -1,8 +1,33 @@
-.ui.grid#welcome
+.ui.center.aligned.grid#welcome
   .row
-    .center.aligned.column
-      img src="#{image_url('icons/newlogo.png')}"
+    .column
+      img src="#{image_url('logoSearch.png')}"
 
   .row
-    .center.aligned.column
-      i.circular.facebook.icon
+    .column
+      h2 Меняйтесь вещами на время
+
+  .row
+    .column
+      img src="#{image_url('start.png')}"
+
+  .row
+    .column
+      a.ui.button href="#{url_for('/auth/facebook')}" Войти через Фейсбук
+
+  .row
+    .column
+      a.ui.button href="#{url_for('/auth/odnoklassniki')}" Войти через Одноклассники
+
+  - if @bucket.try(:stuff)
+    .row
+      .column
+        h2 Недавно поменялись:
+        .ui.grid
+          .three.column.row
+            .ui.center.aligned.column
+              = render partial: 'stuffs/stuff_without_actions', locals: { stuff: @bucket.stuff }
+            .ui.center.aligned.column
+              i.massive.icon class="ok exchange"
+            .ui.center.aligned.column
+              = render partial: 'stuffs/stuff_without_actions', locals: { stuff: @bucket.change_stuff }

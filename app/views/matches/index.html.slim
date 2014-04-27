@@ -4,24 +4,30 @@
       .ui.grid
         .three.column.row
           .column
-            .ui.header Что меняем?
+            .ui.center.aligned.header Что меняем?
           .column
           .column
-            .ui.header На что меняем?
+            .ui.center.aligned.header На что меняем?
   - @stuffs.each do |stuff|
     - stuff.like_matches.each do |match_stuff|
       - unless Bucket.find_by(stuff: stuff, change_stuff: match_stuff) && Bucket.find_by(stuff: match_stuff, change_stuff: stuff)
         .row
-          .ten.wide.column
+          .ten.wide.column.mobile.only.center.aligned
+            = render partial: 'stuffs/stuff_without_actions', locals: { stuff: stuff }
+            = link_to 'Согласиться!', buckets_match_approve_path(stuff_id: stuff.id, change_stuff_id: match_stuff.id)
+            i.massive.exchange.icon.margin0
+            = render partial: 'stuffs/stuff_without_actions', locals: { stuff: match_stuff }
+
+          .ten.wide.column.computer.tablet.only.center.aligned
             .ui.segment
               .ui.grid
                 .three.column.row
-                  .column
-                    .ui.items
-                      = render partial: 'stuffs/stuff_without_actions', locals: { stuff: stuff }
-                  .column
+                  .ui.center.aligned.column
+                    = render partial: 'stuffs/stuff_without_actions', locals: { stuff: stuff }
+
+                  .ui.center.aligned.column
                     = link_to 'Согласиться!', buckets_match_approve_path(stuff_id: stuff.id, change_stuff_id: match_stuff.id)
-                    i.massive.exchange.icon
-                  .column
-                    .ui.items
-                      = render partial: 'stuffs/stuff_without_actions', locals: { stuff: match_stuff }
+                    i.massive.exchange.icon.margin0
+
+                  .ui.center.aligned.column
+                    = render partial: 'stuffs/stuff_without_actions', locals: { stuff: match_stuff }
