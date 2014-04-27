@@ -1,13 +1,18 @@
 .ui.center.aligned.grid
   - @buckets.each do |bucket|
     .row
-      .ten.wide.column
-        .ui.segment
-          .ui.grid
-            .three.column.row
-              .ui.center.aligned.column
-                = render partial: 'stuffs/stuff_without_actions', locals: { stuff: bucket.stuff }
-              .ui.center.aligned.column
-                i.massive.icon class="ok circle"
-              .ui.center.aligned.column
-                = render partial: 'stuffs/stuff_without_actions', locals: { stuff: bucket.change_stuff }
+      .ten.wide.column.mobile.only.center.aligned
+        = render partial: 'stuffs/stuff_without_actions', locals: { stuff: bucket.stuff }
+        i.massive.icon class="ok circle"
+        = render partial: 'stuffs/stuff_without_actions', locals: { stuff: bucket.change_stuff }
+
+      .ten.wide.column.computer.tablet.only.center.aligned
+          .ui.segment
+            .ui.grid
+              .three.column.row
+                .ui.center.aligned.column
+                  = render partial: 'stuffs/stuff_without_actions', locals: { stuff: bucket.stuff }
+                .ui.center.aligned.column
+                  i.massive.icon class="ok circle"
+                .ui.center.aligned.column
+                  = render partial: 'stuffs/stuff_without_actions', locals: { stuff: bucket.change_stuff }
