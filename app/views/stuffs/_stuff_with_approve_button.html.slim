@@ -6,4 +6,4 @@
   .extra
     i.heart.icon
       = stuff.likes.count
-    a.right.aligned href="#{approve_path(bucket, change_stuff_id: stuff.id)}" Согласен
+    = link_to 'Согласен<i class="i icon thumbs up outline icon"></i>'.html_safe, approve_path(bucket, change_stuff_id: stuff.id), class: "right aligned"
