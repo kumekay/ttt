@@ -3,7 +3,7 @@
     min-height: 4em
     height: 4em
 
-.stuff_item
+.stuff_item.normal
   width: 150px !important
   min-height: 50px !important
 
@@ -31,7 +31,9 @@ a
   width: 30% !important
   margin-left: -20% !important
 
-  .stuff_popup_item
+  .stuff_item.popup
+    a.like
+      text-decoration: none
 
 #tag_cloud
   line-height: 1.6em
@@ -44,7 +46,7 @@ a
 
   a
     margin-bottom: 7px
-    
+
 .form_with_alts
   @media screen and (min-width: 800px)
     width: 50% !important
