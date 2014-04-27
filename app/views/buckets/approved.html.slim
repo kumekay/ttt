@@ -1,5 +1,15 @@
-- @buckets.each do |bucket|
-  p Меняется
-  = bucket.stuff
-  p На
-  = bucket.change_stuff
+.ui.center.aligned.grid
+  - @buckets.each do |bucket|
+    .row
+      .ten.wide.column
+        .ui.segment
+          .ui.grid
+            .three.column.row
+              .column
+                .ui.items
+                  = render partial: 'stuffs/stuff_without_actions', locals: { stuff: bucket.stuff }
+              .column
+                i.massive.icon class="ok sign"
+              .column
+                .ui.items
+                  = render partial: 'stuffs/stuff_without_actions', locals: { stuff: bucket.change_stuff }
