@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140426214558) do
+ActiveRecord::Schema.define(version: 20140427034538) do
 
   create_table "buckets", force: true do |t|
-    t.integer "user_id"
-    t.integer "stuff_id"
-    t.integer "change_stuff_id"
-    t.boolean "approve"
+    t.integer  "user_id"
+    t.integer  "stuff_id"
+    t.integer  "change_stuff_id"
+    t.boolean  "approve"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "buckets", ["change_stuff_id"], name: "index_buckets_on_change_stuff_id"

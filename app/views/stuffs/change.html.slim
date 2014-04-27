@@ -1,10 +1,14 @@
+.ui.center.aligned.segment
+  .image
+    = image_tag(@stuff.image_url(:thumb).to_s) if @stuff.image?
+  .content
+    .name = @stuff.name
+  .extra
+    i.heart.icon
+    = @stuff.likes.count
+
+
 .ui.grid
-  .three.column.row
-    .column
-    .column
-      .ui.items
-        = render partial: 'stuffs/stuff_without_actions', locals: { stuff: @stuff }
-    .column
   .row
     .column
       .ui.stackable.items
