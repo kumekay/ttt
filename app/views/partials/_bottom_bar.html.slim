@@ -4,14 +4,18 @@
       .center.aligned.row
         .column
           a.item href="#{wishlist_path}" class="#{'active_own_color' if controller?("stuffs") && action?("liked")}"
-            i.medium.icon.heart.empty
-            .icon_text Wishlist
+            img src="#{image_url('icons/likes.png')}"
+            / i.medium.icon.heart.empty
+            / .icon_text Wishlist
           a.item href="#{my_stuffs_path}" class="#{'active_own_color' if controller?("stuffs") && action?("my")}"
-            i.medium.icon.bitbucket
-            .icon_text My bucket
+            img src="#{image_url('icons/myBucket.png')}"
+            / i.medium.icon.bitbucket
+            / .icon_text My bucket
           a.item href="#{matches_path}" class="#{'active_own_color' if controller?("matches") && action?("index")}"
-            i.medium.icon.exchange
-            .icon_text Pairs
+            img src="#{image_url('icons/likesInMyBucket.png')}"
+            / i.medium.icon.exchange
+            / .icon_text Pairs
           a.item href="#{approved_path}" class="#{'active_own_color' if controller?("buckets") && action?("approved")}"
-            i.medium.icon class="ok circle"
-            .icon_text Approved
+            img src="#{image_url('icons/exchange.png')}"
+            / i.medium.icon class="ok circle"
+            / .icon_text Approved

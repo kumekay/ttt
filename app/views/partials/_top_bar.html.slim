@@ -2,17 +2,17 @@
   .ui.transparent.fixed.yellow.menu
     .container
       a.item#logo href="#{root_url}"
-        i.icon.exchange
-        .ui.huge.header.full
-          | Stuff Bucket
+        img src="#{image_url('icons/newlogo.png')}"
       .right.menu
-        .icon.item
-          i.search.icon.medium
-          .icon_text Search
+        a.icon.item
+          img src="#{image_url('icons/search.png')}"
+          / i.search.icon.medium
+          / .icon_text Search
         a.item href="#{tag_cloud_url}" class="#{'active_own_color' if controller?("stuffs") && action?("tag_cloud")}"
-          i.icon.medium
-            | #
-          .icon_text Tags
+          img src="#{image_url('icons/tags.png')}"
+          / i.icon.medium
+            / | #
+          / .icon_text Tags
         - if current_user
           .ui.dropdown.item.sign_out
             span.name= current_user.name
