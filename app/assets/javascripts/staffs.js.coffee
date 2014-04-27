@@ -9,5 +9,6 @@ $ ->
       $(data).modal('show')
 
   stuff.find('img').click(item_click_handler)
-  stuff.find('.name').click(item_click_handler)
+  stuff.find('.name').click(item_click_handler).shorten()
+
 

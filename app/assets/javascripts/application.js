@@ -16,4 +16,5 @@
 //= require semantic-ui
 //= require js-routes
 //= require turbolinks
+//= require jquery.shorten.min
 //= require_tree .
