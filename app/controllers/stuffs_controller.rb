@@ -74,6 +74,6 @@ class StuffsController < ApplicationController
   end
 
   def index_stuff
-    current_user ? Stuff.not_own(current_user) : Stuff.all
+    Stuff.all.order('created_at DESC')
   end
 end

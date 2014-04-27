@@ -11,7 +11,7 @@ class BucketsController < ApplicationController
 
   def approve
     @bucket = Bucket.find(params[:id]).update_attributes(change_stuff_id: params[:change_stuff_id], approve: true)
-    redirect_to buckets_approved_path
+    redirect_to approved_path
   end
 
   def approved
@@ -25,6 +25,6 @@ class BucketsController < ApplicationController
       change_stuff_id: params[:change_stuff_id],
       approve: true
     )
-    redirect_to buckets_approved_path
+    redirect_to approved_path
   end
 end

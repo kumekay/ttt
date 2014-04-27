@@ -6,5 +6,5 @@ class Bucket < ActiveRecord::Base
   validates_uniqueness_of :stuff_id, scope: :user_id
 
   scope :approved, -> { where(approve: true) }
-  scope :not_approved, -> { where(approve: false) }
+  scope :not_approved, -> { where(approve: [nil, false]) }
 end
