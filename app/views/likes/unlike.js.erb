@@ -1,1 +1,2 @@
 $('.stuff_item[data-stuff-id=<%=params[:stuff_id]%>]').find('a.like').get(0).classList.remove('orange')
+$('.stuff_item[data-stuff-id=<%=params[:stuff_id]%>]').find('.likes_count').get(0).innerHTML = "<%= @likes.count %>"
