@@ -70,7 +70,7 @@ class StuffsController < ApplicationController
   end
 
   def liked
-    @stuffs = Stuff.not_own(current_user).liked
+    @stuffs = Stuff.not_own(current_user).liked.uniq
   end
 
   private
