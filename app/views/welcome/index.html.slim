@@ -17,7 +17,7 @@
 
   .row
     .column
-      a.ui.button ref="#{url_for('/auth/odnoklassniki')}" Войти через Одноклассники
+      a.ui.button href="#{url_for('/auth/odnoklassniki')}" Войти через Одноклассники
 
   - if @bucket.try(:stuff)
     .row
