@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :stuffs do
     get 'change', on: :member
+    get 'popup', to: 'stuffs#show_popup'
   end
   get 'tags/:tag', to: 'stuffs#index', as: :tag
 
