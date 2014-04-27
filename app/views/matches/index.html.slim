@@ -16,12 +16,24 @@
             .ui.segment
               .ui.grid
                 .three.column.row
-                  .column
-                    .ui.items
-                      = render partial: 'stuffs/stuff_without_actions', locals: { stuff: stuff }
-                  .column
+                  .ui.center.aligned.column
+                    .image
+                      = image_tag(stuff.image_url(:thumb).to_s) if stuff.image?
+                      .content
+                        .name = stuff.name
+                      .extra
+                        i.heart.icon
+                        = stuff.likes.count
+
+                  .ui.center.aligned.column
                     = link_to 'Согласиться!', buckets_match_approve_path(stuff_id: stuff.id, change_stuff_id: match_stuff.id)
-                    i.massive.exchange.icon
-                  .column
-                    .ui.items
-                      = render partial: 'stuffs/stuff_without_actions', locals: { stuff: match_stuff }
+                    i.massive.exchange.icon.margin0
+
+                  .ui.center.aligned.column
+                    .image
+                      = image_tag(match_stuff.image_url(:thumb).to_s) if match_stuff.image?
+                      .content
+                        .name = match_stuff.name
+                      .extra
+                        i.heart.icon
+                        = match_stuff.likes.count
