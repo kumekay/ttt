@@ -11,4 +11,7 @@
     .extra
       a href="#{edit_stuff_path(stuff)}"
         i.edit.icon
-        | Edit
+        | Редактировать &nbsp
+      - if params[:controller] == 'stuffs' && params[:action] == 'my'
+        - unless stuff.buckets.where(change_stuff_id: nil).empty?
+          = link_to 'Обменять', change_stuff_path(stuff)

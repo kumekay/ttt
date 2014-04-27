@@ -1,3 +1,9 @@
+.item
+  .image
+    = image_tag(@stuff.image_url(:thumb).to_s) if @stuff.image?
+  .content
+    .name = @stuff.name
+
 - @stuff.buckets.each do |bucket|
   - bucket.user.stuffs.each do |stuff|
     = image_tag(stuff.image_url(:thumb)) if stuff.image?
