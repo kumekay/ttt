@@ -21,7 +21,7 @@ class StuffsController < ApplicationController
   end
 
   def my
-    @stuffs = current_user.stuffs
+    @stuffs = current_user.stuffs.order('created_at DESC')
   end
 
   def show
@@ -59,7 +59,14 @@ class StuffsController < ApplicationController
   end
 
   def destroy
-    #todo:
+    begin
+      if stuff = current_user.stuffs.find(params[:id])
+        stuff.destroy
+        stuff.buckets.destroy_all
+        stuff.change_buckets.destroy_all  
+      end
+    end
+    redirect_to my_stuffs_path
   end
 
   def liked
