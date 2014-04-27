@@ -17,6 +17,6 @@ class User < ActiveRecord::Base
   end
 
   def liked_stuff
-    self.likes.map {|x| x.stuff }
+    self.likes.map {|x| x.stuff }.compact
   end
 end

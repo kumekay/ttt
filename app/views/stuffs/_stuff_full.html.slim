@@ -11,8 +11,12 @@
     .extra
       a href="#{edit_stuff_path(stuff)}"
         i.edit.icon
-        | Редактировать &nbsp
+        | Редактировать &nbsp;
       - if current_user
         - if params[:controller] == 'stuffs' && params[:action] == 'my'
           - unless stuff.buckets.not_approved.where(change_stuff_id: nil).empty?
-            = link_to 'Обменять', change_stuff_path(stuff)
+            a href="#{change_stuff_path(stuff)}"
+              i.refresh.icon
+              | Обменять &nbsp;
+            br
+          = link_to '<i class="i icon remove"></i>Удалить'.html_safe, stuff_path(stuff), method: :delete, data: { confirm: 'Вы уверены?' }
