@@ -15,6 +15,9 @@ class StuffsController < ApplicationController
 
   def change
     @stuff = current_user.stuffs.find(params[:id])
+    if @stuff.buckets.not_approved.empty?
+      redirect_to my_bucket_path
+    end
   end
 
   def my

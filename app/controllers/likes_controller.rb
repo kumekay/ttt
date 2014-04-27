@@ -12,6 +12,5 @@ class LikesController < ApplicationController
       current_user.likes.create!(stuff_id: params[:stuff_id])
       render :like
     end
-    # binding.pry
   end
 end

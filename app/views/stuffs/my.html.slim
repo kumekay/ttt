@@ -2,6 +2,7 @@
   .row
     .column
       .ui.stackable.items
+        a href="#{new_stuff_path}"
+          i.icon class="add sign box massive"
         - @stuffs.each do |stuff|
           = render partial: 'stuffs/stuff_full', locals: { stuff: stuff }
-        = link_to 'Добавить вещь', new_stuff_path
