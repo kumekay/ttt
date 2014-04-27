@@ -5,11 +5,6 @@
         - if @stuffs.empty?
           p Вы еще ничего не выбрали!
         - @stuffs.each do |stuff|
-          .item.stuff_item href="#{stuff_path(stuff)}"
-            .image
-              = image_tag(stuff.image_url(:thumb).to_s) if stuff.image?
-            .content
-              .name = stuff.name
-              .tags = raw stuff.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
-              p.description = stuff.description
+          = render partial: 'stuffs/stuff_light', locals: { stuff: stuff }
+
 
