@@ -18,6 +18,9 @@
             span.name= current_user.name
             i.icon.triangle.down
             .menu
+              a.item href="#{my_stuffs_path}"
+                i.icon.bitbucket
+                | My stuff bucket
               a.item href="#{signout_path}" data-method="delete"
                 i.icon.sign.out
                 | Sign out
