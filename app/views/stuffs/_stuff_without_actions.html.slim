@@ -1,9 +1,5 @@
-.item.stuff_item.normal href="#{stuff_path(stuff)}" data-stuff-id="#{stuff.id}"
-  .image
-    = image_tag(stuff.image_url(:thumb).to_s) if stuff.image?
-    - if current_user && stuff.user != current_user
-      a.like.ui.corner.label href="#{stuff_like_toggle_path(wisher_id: current_user.id, owner_id: stuff.user, stuff_id: stuff.id)}" data-remote="true" class=('yellow' if stuff.liked_by?(current_user))
-        i.like.icon
+.image
+  = image_tag(stuff.image_url(:thumb).to_s) if stuff.image?
   .content
     .name = stuff.name
   .extra

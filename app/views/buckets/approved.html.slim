@@ -5,11 +5,9 @@
         .ui.segment
           .ui.grid
             .three.column.row
-              .column
-                .ui.items
-                  = render partial: 'stuffs/stuff_without_actions', locals: { stuff: bucket.stuff }
-              .column
+              .ui.center.aligned.column
+                = render partial: 'stuffs/stuff_without_actions', locals: { stuff: bucket.stuff }
+              .ui.center.aligned.column
                 i.massive.icon class="ok circle"
-              .column
-                .ui.items
-                  = render partial: 'stuffs/stuff_without_actions', locals: { stuff: bucket.change_stuff }
+              .ui.center.aligned.column
+                = render partial: 'stuffs/stuff_without_actions', locals: { stuff: bucket.change_stuff }
