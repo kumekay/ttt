@@ -20,6 +20,12 @@ class StuffsController < ApplicationController
 
   def show
     @stuff = Stuff.find(params[:id])
+    render partial: 'stuffs/show_popup'
+  end
+
+  def show_popup
+    @stuff = Stuff.find(params[:stuff_id])
+    render partial: 'stuffs/show_popup'
   end
 
   def new
