@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get 'popup', to: 'stuffs#show_popup'
   end
   get 'tags/:tag', to: 'stuffs#index', as: :tag
+  get 'tag_cloud', to: 'stuffs#tag_cloud'
 
   get '/auth/:provider/callback', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'

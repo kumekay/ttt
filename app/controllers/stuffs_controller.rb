@@ -10,6 +10,9 @@ class StuffsController < ApplicationController
     end
   end
 
+  def tag_cloud
+  end
+
   def change
     @stuff = current_user.stuffs.find(params[:id])
   end
@@ -38,7 +41,7 @@ class StuffsController < ApplicationController
   def create
     @stuff = current_user.stuffs.new(stuff_params)
     if @stuff.save
-      redirect_to @stuff
+      redirect_to my_stuffs_path
     else
       render :new
     end
@@ -46,7 +49,7 @@ class StuffsController < ApplicationController
 
   def update
     if @stuff.update(stuff_params)
-      redirect_to @stuff
+      redirect_to my_stuffs_path
     else
       render :edit
     end

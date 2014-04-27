@@ -63,4 +63,4 @@ gem 'carrierwave'
 gem 'rmagick', require: 'RMagick'
 gem 'fog'
 gem 'jquery-turbolinks'
-gem "js-routes"
+gem 'js-routes'
